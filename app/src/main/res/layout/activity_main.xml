@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center_horizontal"
     android:background="@color/main_background"
     android:orientation="vertical">
 
@@ -19,6 +18,7 @@
         android:layout_height="@dimen/display_height"
         android:background="@drawable/display_background"
         android:gravity="end"
+        android:layout_margin="16dp"
         android:text="@string/default_display_text"
         android:textColor="@color/display_text"
         android:textSize="@dimen/display_text_size" />
@@ -27,7 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="4"
-        android:useDefaultMargins="false">
+        android:useDefaultMargins="false"
+        android:layout_margin="16dp">
 
 
         <Button
