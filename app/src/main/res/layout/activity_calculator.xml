@@ -19,7 +19,7 @@
         android:background="@drawable/display_background"
         android:gravity="end"
         android:layout_margin="16dp"
-        android:text="@string/default_display_text"
+        android:text=""
         android:textColor="@color/display_text"
         android:textSize="@dimen/display_text_size" />
 
@@ -198,13 +198,13 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/keyPlusMinus"
+            android:id="@+id/keyDot"
             android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_plus_minus"
-            android:textColor="@color/action_button_text"
+            android:text="@string/key_dot"
+            android:textColor="@color/key_button_text"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold" />
 
@@ -220,23 +220,23 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/keyDot"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_dot"
-            android:textColor="@color/key_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
-
-        <Button
             android:id="@+id/keyResult"
             android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:layout_margin="@dimen/button_margin"
             android:backgroundTint="@color/key_button_background"
             android:text="@string/key_result"
+            android:textColor="@color/action_button_text"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/keyPlus"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="@dimen/button_margin"
+            android:backgroundTint="@color/key_button_background"
+            android:text="@string/key_plus"
             android:textColor="@color/action_button_text"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold" />

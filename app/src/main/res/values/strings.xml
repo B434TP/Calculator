@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Calculator</string>
 
-    <string name="default_display_text">0</string>
     <string name="key_1">1</string>
     <string name="key_2">2</string>
     <string name="key_3">3</string>
@@ -18,7 +17,8 @@
     <string name="key_minus">-</string>
     <string name="key_multiply">x</string>
     <string name="key_divide">/</string>
-    <string name="key_plus_minus">∓</string>
     <string name="key_clear_all">CA</string>
     <string name="key_back_space">⟸</string>
+    <string name="log_tag">OSACalculator</string>
+
 </resources>
