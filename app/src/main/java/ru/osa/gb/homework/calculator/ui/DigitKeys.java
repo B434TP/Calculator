@@ -11,5 +11,4 @@ public enum DigitKeys {
     KEY8,
     KEY9,
     KEY0,
-    DOT,
 }

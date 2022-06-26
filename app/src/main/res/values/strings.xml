@@ -19,6 +19,4 @@
     <string name="key_divide">/</string>
     <string name="key_clear_all">CA</string>
     <string name="key_back_space">⟸</string>
-    <string name="log_tag">OSACalculator</string>
-
 </resources>

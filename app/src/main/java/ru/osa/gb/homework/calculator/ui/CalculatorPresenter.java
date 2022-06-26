@@ -2,8 +2,6 @@ package ru.osa.gb.homework.calculator.ui;
 
 import android.util.Log;
 
-import java.text.DecimalFormat;
-
 import ru.osa.gb.homework.calculator.model.Calculator;
 import ru.osa.gb.homework.calculator.model.Operations;
 
@@ -44,15 +42,15 @@ public class CalculatorPresenter {
 
         if (!operationIsPressed) {
             if (firstArg == null) {
-                firstArg = getIntFromKey(key);
+                firstArg = getNumberFromKey(key);
             } else
-                firstArg = 10 * firstArg + getIntFromKey(key);
+                firstArg = 10 * firstArg + getNumberFromKey(key);
             onDisplay = firstArg;
         } else {
             if (secondArg == null) {
-                secondArg = getIntFromKey(key);
+                secondArg = getNumberFromKey(key);
             } else
-                secondArg = 10 * secondArg + getIntFromKey(key);
+                secondArg = 10 * secondArg + getNumberFromKey(key);
             onDisplay = secondArg;
         }
         sh();
@@ -95,7 +93,7 @@ public class CalculatorPresenter {
     }
 
 
-    private double getIntFromKey(DigitKeys key) {
+    private double getNumberFromKey(DigitKeys key) {
         Log.d("KeyPress", key.toString());
         switch (key) {
             case KEY1:
