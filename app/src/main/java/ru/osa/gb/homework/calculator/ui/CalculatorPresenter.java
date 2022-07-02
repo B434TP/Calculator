@@ -10,8 +10,9 @@ public class CalculatorPresenter {
     private Double firstArg;
     private Double secondArg;
     private Operations lastOperation;
-    private Double onDisplay;
+    private String textOnDisplay;
     private Boolean dotIsPressed;
+    private int afterDotCount;
     private Boolean operationIsPressed;
     private CalculatorView calculatorView;
     private Calculator calculator;
@@ -27,31 +28,38 @@ public class CalculatorPresenter {
         firstArg = null;
         secondArg = null;
         dotIsPressed = false;
+        afterDotCount = 0;
         operationIsPressed = false;
-        onDisplay = 0.0;
+        textOnDisplay = "";
         sh();
     }
 
     private void sh() {
-        calculatorView.showOnDisplay(onDisplay);
-        Log.d("onDisplay", String.valueOf(onDisplay));
-
+        textOnDisplay = calculatorView.showOnDisplay(textOnDisplay);
+        Log.d("onDisplay", String.valueOf(textOnDisplay));
     }
 
     public void onDigitPress(DigitKeys key) {
 
         if (!operationIsPressed) {
             if (firstArg == null) {
-                firstArg = getNumberFromKey(key);
-            } else
+                if (!dotIsPressed) {
+                    firstArg = (double) getNumberFromKey(key);
+                } else {
+                    firstArg = (double) getNumberFromKey(key) / 10;
+                }
+            } else if (!dotIsPressed) {
                 firstArg = 10 * firstArg + getNumberFromKey(key);
-            onDisplay = firstArg;
+            } else {
+                firstArg = putDigitAfterDot(firstArg, getNumberFromKey(key));
+            }
+            textOnDisplay = String.valueOf(firstArg);
         } else {
             if (secondArg == null) {
-                secondArg = getNumberFromKey(key);
+                secondArg = (double) getNumberFromKey(key);
             } else
                 secondArg = 10 * secondArg + getNumberFromKey(key);
-            onDisplay = secondArg;
+            textOnDisplay = String.valueOf(secondArg);
         }
         sh();
 
@@ -62,17 +70,23 @@ public class CalculatorPresenter {
         onResultKeyPress();
         lastOperation = key;
         operationIsPressed = true;
+        dotIsPressed = false;
+        afterDotCount = 0;
         Log.d("KeyPress", key.toString());
     }
 
     public void onResultKeyPress() {
         Log.d("KeyPress", "RESULT");
         if (firstArg != null && secondArg != null) {
-            onDisplay = calculator.doOperation(firstArg, secondArg, lastOperation);
+            firstArg  = calculator.doOperation(firstArg, secondArg, lastOperation);
+            Log.d("KeyPressRes-FirstArg", String.valueOf(firstArg));
+            Log.d("KeyPressRes-SecondArg", String.valueOf(secondArg));
+
+            textOnDisplay = String.valueOf(firstArg);
             sh();
-            firstArg = onDisplay;
             secondArg = null;
             dotIsPressed = false;
+            afterDotCount = 0;
             operationIsPressed = false;
         }
     }
@@ -89,11 +103,31 @@ public class CalculatorPresenter {
 
     public void onBackSpaceKeyPress() {
         Log.d("KeyPress", "BACKSPACE");
-        String val = String.valueOf(onDisplay);
+//        textOnDisplay = ;
+    }
+
+    private double putDigitAfterDot(Double in, int digit) {
+        if (in == null) {
+            return (double) digit;
+        }
+
+        String strIn = String.valueOf(in);
+        Log.d("DOT-in", strIn);
+
+        if (in * 10 == in) {
+            strIn = strIn.substring(0, strIn.length()-1);
+        }
+
+        String strOut = strIn + digit;
+        double out;
+        out = Double.valueOf(strOut);
+
+        Log.d("DOT-out", strOut);
+        return out;
     }
 
 
-    private double getNumberFromKey(DigitKeys key) {
+    private int getNumberFromKey(DigitKeys key) {
         Log.d("KeyPress", key.toString());
         switch (key) {
             case KEY1:
@@ -117,7 +151,7 @@ public class CalculatorPresenter {
             case KEY0:
                 return 0;
         }
-        return 0.0;
+        return 0;
 
     }
 

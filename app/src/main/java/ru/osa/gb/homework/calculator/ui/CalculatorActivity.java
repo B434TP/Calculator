@@ -3,10 +3,7 @@ package ru.osa.gb.homework.calculator.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
-
-import java.text.DecimalFormat;
 
 import ru.osa.gb.homework.calculator.R;
 import ru.osa.gb.homework.calculator.model.CalculatorImpl;
@@ -16,6 +13,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
 
     private TextView displayView;
     private CalculatorPresenter calculatorPresenter;
+    private final int DISPLAY_LENGTH = 14;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +51,11 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
     }
 
     @Override
-    public void showOnDisplay(double result) {
-        displayView.setText(String.valueOf(result));
+    public String showOnDisplay(String result) {
+        if (result.length() > DISPLAY_LENGTH) {
+            result = result.substring(0, DISPLAY_LENGTH);
+        }
+        displayView.setText(result);
+        return result;
     }
 }

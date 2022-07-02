@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_width">90dp</dimen>
+    <dimen name="button_half_width">45dp</dimen>
+    <dimen name="button_double_width">186dp</dimen>
+    <dimen name="button_height">45dp</dimen>
+    <dimen name="display_height">40dp</dimen>
+    <dimen name="button_text_size">20sp</dimen>
+    <dimen name="display_text_size">20sp</dimen>
+    <dimen name="button_margin">3dp</dimen>
+</resources>
