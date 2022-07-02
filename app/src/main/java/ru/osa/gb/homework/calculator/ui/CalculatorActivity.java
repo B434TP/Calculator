@@ -23,7 +23,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         setContentView(R.layout.activity_calculator);
         displayView = findViewById(R.id.display);
 
-
+        // Для тестового коммита
         if (savedInstanceState != null) {
             calculatorPresenter = savedInstanceState.getParcelable("calculatorPresenter");
             calculatorPresenter.setCalculatorView(this);
