@@ -1,11 +1,13 @@
 package ru.osa.gb.homework.calculator.ui;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import ru.osa.gb.homework.calculator.model.Calculator;
 import ru.osa.gb.homework.calculator.model.Operations;
 
-public class CalculatorPresenter {
+public class CalculatorPresenter implements Parcelable {
 
     private Double firstArg;
     private Double secondArg;
@@ -17,12 +19,46 @@ public class CalculatorPresenter {
     private CalculatorView calculatorView;
     private Calculator calculator;
 
+    public void setCalculatorView(CalculatorView calculatorView) {
+        this.calculatorView = calculatorView;
+    }
 
     public CalculatorPresenter(CalculatorView calculatorView, Calculator calculator) {
         this.calculatorView = calculatorView;
         this.calculator = calculator;
         initCalc();
     }
+
+    protected CalculatorPresenter(Parcel in) {
+        if (in.readByte() == 0) {
+            firstArg = null;
+        } else {
+            firstArg = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            secondArg = null;
+        } else {
+            secondArg = in.readDouble();
+        }
+        textOnDisplay = in.readString();
+        byte tmpDotIsPressed = in.readByte();
+        dotIsPressed = tmpDotIsPressed == 0 ? null : tmpDotIsPressed == 1;
+        afterDotCount = in.readInt();
+        byte tmpOperationIsPressed = in.readByte();
+        operationIsPressed = tmpOperationIsPressed == 0 ? null : tmpOperationIsPressed == 1;
+    }
+
+    public static final Creator<CalculatorPresenter> CREATOR = new Creator<CalculatorPresenter>() {
+        @Override
+        public CalculatorPresenter createFromParcel(Parcel in) {
+            return new CalculatorPresenter(in);
+        }
+
+        @Override
+        public CalculatorPresenter[] newArray(int size) {
+            return new CalculatorPresenter[size];
+        }
+    };
 
     private void initCalc() {
         firstArg = null;
@@ -34,9 +70,10 @@ public class CalculatorPresenter {
         sh();
     }
 
-    private void sh() {
+    public void sh() {
         textOnDisplay = calculatorView.showOnDisplay(textOnDisplay);
         Log.d("onDisplay", String.valueOf(textOnDisplay));
+
     }
 
     public void onDigitPress(DigitKeys key) {
@@ -156,4 +193,28 @@ public class CalculatorPresenter {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        if (firstArg == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeDouble(firstArg);
+        }
+        if (secondArg == null) {
+            parcel.writeByte((byte) 0);
+        } else {
+            parcel.writeByte((byte) 1);
+            parcel.writeDouble(secondArg);
+        }
+        parcel.writeString(textOnDisplay);
+        parcel.writeByte((byte) (dotIsPressed == null ? 0 : dotIsPressed ? 1 : 2));
+        parcel.writeInt(afterDotCount);
+        parcel.writeByte((byte) (operationIsPressed == null ? 0 : operationIsPressed ? 1 : 2));
+    }
 }

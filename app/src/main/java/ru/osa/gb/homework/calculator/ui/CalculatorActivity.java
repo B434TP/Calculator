@@ -1,8 +1,10 @@
 package ru.osa.gb.homework.calculator.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import ru.osa.gb.homework.calculator.R;
@@ -20,9 +22,25 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
         displayView = findViewById(R.id.display);
-        calculatorPresenter = new CalculatorPresenter(this, new CalculatorImpl());
+
+
+        if (savedInstanceState != null) {
+            calculatorPresenter = savedInstanceState.getParcelable("calculatorPresenter");
+            calculatorPresenter.setCalculatorView(this);
+            calculatorPresenter.sh();
+        } else {
+            calculatorPresenter = new CalculatorPresenter(this, new CalculatorImpl());
+        }
 
         setAllListeners();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putParcelable("calculatorPresenter", calculatorPresenter);
+        Log.d("Act", "onSaveInstanceState: done");
+        Log.d("Act", outState.getParcelable("calculatorPresenter").toString());
+        super.onSaveInstanceState(outState);
 
     }
 
