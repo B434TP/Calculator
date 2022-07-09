@@ -25,7 +25,7 @@
         android:useDefaultMargins="false">
 
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/keyClearAll"
 
             android:layout_width="@dimen/button_double_width"
@@ -42,7 +42,7 @@
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/keyBackSpace"
 
             android:layout_width="@dimen/button_double_width"
@@ -60,188 +60,97 @@
             android:textStyle="bold" />
 
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key1"
-
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
+            style="@style/CalcButton"
             android:text="@string/key_1"
-            android:textColor="@color/key_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+ />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key2"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
+            style="@style/CalcButton"
             android:text="@string/key_2"
-            android:textColor="@color/key_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+ />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key3"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
+            style="@style/CalcButton"
             android:text="@string/key_3"
-            android:textColor="@color/key_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+ />
 
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key4"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
+            style="@style/CalcButton"
             android:text="@string/key_4"
-            android:textColor="@color/key_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+ />
 
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key5"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
+            style="@style/CalcButton"
             android:text="@string/key_5"
-            android:textColor="@color/key_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+ />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/keyDivide"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_divide"
-            android:textColor="@color/action_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+            style="@style/CalcButton.ActionButton"
+            android:text="@string/key_divide" />
 
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/keyMultiply"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_multiply"
-            android:textColor="@color/action_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+            style="@style/CalcButton.ActionButton"
+            android:text="@string/key_multiply" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key6"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_6"
-            android:textColor="@color/key_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+            style="@style/CalcButton"
+            android:text="@string/key_6" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key7"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_7"
-            android:textColor="@color/key_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+            style="@style/CalcButton"
+            android:text="@string/key_7" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key8"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_8"
-            android:textColor="@color/key_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+            style="@style/CalcButton"
+            android:text="@string/key_8" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key9"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_9"
-            android:textColor="@color/key_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+            style="@style/CalcButton"
+            android:text="@string/key_9" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key0"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_0"
-            android:textColor="@color/key_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+            style="@style/CalcButton"
+            android:text="@string/key_0" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/keyMinus"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_minus"
-            android:textColor="@color/action_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+            style="@style/CalcButton.ActionButton"
+            android:text="@string/key_minus" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/keyPlus"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_plus"
-            android:textColor="@color/action_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+            style="@style/CalcButton.ActionButton"
+            android:text="@string/key_plus" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/keyDot"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
+            style="@style/CalcButton"
             android:layout_columnSpan="5"
             android:layout_gravity="right"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_dot"
-            android:textColor="@color/key_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+
+            android:text="@string/key_dot" />
 
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/keyResult"
-            android:layout_width="@dimen/button_width"
-            android:layout_height="@dimen/button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:backgroundTint="@color/key_button_background"
-            android:text="@string/key_result"
-            android:textColor="@color/action_button_text"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold" />
+            style="@style/CalcButton.ActionButton"
+            android:text="@string/key_result" />
 
 
     </GridLayout>
